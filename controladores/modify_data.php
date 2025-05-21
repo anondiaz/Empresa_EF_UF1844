@@ -15,6 +15,8 @@ foreach ($datosDepartamentos as $departamento) {
     }
 }
 
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
 // echo $id_departamento;
 
 //  ** Completa esto **
@@ -27,7 +29,7 @@ $updatePerson = "UPDATE personas SET nombre_persona = ?, apellido_persona = ?, p
 $updatePreparacion = $pdo -> prepare($updatePerson);
 
 //Ejecución, '->' con espacios antes y después opcional
-$updatePreparacion -> execute([$_POST['nombre'], $_POST['apellidos'], $_POST['contraseña'], $id_departamento, $_POST['email'], $_POST['id']]);
+$updatePreparacion -> execute([$_POST['nombre'], $_POST['apellidos'], $hash, $id_departamento, $_POST['email'], $_POST['id']]);
 
 // // Limpiamos el insert
 $updatePreparacion = null;

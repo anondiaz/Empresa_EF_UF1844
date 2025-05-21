@@ -15,12 +15,14 @@ foreach ($datosDepartamentos as $departamento) {
     }
 }
 
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
 // echo $id_departamento;
 
 //  ** Completa esto ** 
 $insertPerson = "INSERT INTO personas(nombre_persona, apellido_persona, password, email, id_departamento) VALUES (?, ?, ?, ?, ?)";
 $insertPerson = $pdo -> prepare($insertPerson);
-$insertPerson -> execute([$_GET['nombre'], $_GET['apellidos'], $_GET['contraseña'], $_GET['email'], $id_departamento]);
+$insertPerson -> execute([$_GET['nombre'], $_GET['apellidos'], $hash, $_GET['email'], $id_departamento]);
 $insertPerson = null;
 $pdo = null;
 header("Location: ../index.php");
