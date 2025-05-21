@@ -1,0 +1,9 @@
+INSTRUCCIONES ADICIONALES
+
+Debes completar el código que falta para dejar la aplicación funcional, 
+como se ve en el video.
+
+A modo de pista, si buscas ** (dos asteriscos) encontrarás aquellas partes
+de los ficheros en las cuales es necesario trabajar.
+
+¡Buena suerte!

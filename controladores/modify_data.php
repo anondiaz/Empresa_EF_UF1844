@@ -1,53 +1,40 @@
 <?php
 
-// Cargamos los datos de departamento llamando al fichero que genera la consulta
-require_once './departamentos.php';
+require_once '../connection.php';
+require_once 'departamentos.php';
 
-//  ** Completa esto **
+// print_r($_POST);
 
-print_r($_POST);
-// Prueba de recepción de datos de los departamentos
-// print_r($array_departamentos);
-// echo "<br>"."--------------------"."<br>";
 
-// Prueba de recepción de los datos del formulario
-// echo $_POST['estado'];
-// echo "<br>"."--------------------"."<br>";
 
 $id_departamento = 0;
 
-foreach ($array_departamento as $id_subarrayestado) {
-    // echo $id_subarrayestado['nombre_estado'] . "estado";
-    // echo "<br>"."--------------------"."<br>";
-    // echo $_POST['estado'] . "estado";
-    // echo "<br>"."--------------------"."<br>";
-    // echo $id_subarrayestado['id_estado'] . "id_estado";
-    // echo "<br>"."--------------------"."<br>";
-
-    if ($_POST['departamento'] == $id_departamento['nombre_departamento']){
-        $id_departamento = $id_subarrayestado['id_estado'];
-        // echo $id_estado;
-        // echo "<br>"."--------------------"."<br>";
-        // echo $id_subarrayestado['id_estado'];
-        
+foreach ($datosDepartamentos as $departamento) {
+    if ($departamento['nombre_departamento'] == $_POST['departamento']) {
+        $id_departamento = $departamento['id_departamento'];
     }
 }
 
+// echo $id_departamento;
 
-// // Definir la querie como string
-// $update = "UPDATEpersonas(nombre_persona, apellido_persona, password, id_departamento, email) VALUES (?, ?, ?, ?, ?) WHERE id_persona = ?";
+//  ** Completa esto **
 
-// // Preparación, '->' con espacios antes y después opcional
-// $updatePreparacion = $conn -> prepare($update);
 
-// //Ejecución, '->' con espacios antes y después opcional
-// $updatePreparacion -> execute([$_POST['titulo'], $_POST['descripcion'], $fechahorafin, $id_estado, 1, 1, $_POST['id']]);
+// Definir la querie como string
+$updatePerson = "UPDATE personas SET nombre_persona = ?, apellido_persona = ?, password = ?, id_departamento = ?, email = ? WHERE id_persona = ?";
+
+// Preparación, '->' con espacios antes y después opcional
+$updatePreparacion = $pdo -> prepare($updatePerson);
+
+//Ejecución, '->' con espacios antes y después opcional
+$updatePreparacion -> execute([$_POST['nombre'], $_POST['apellidos'], $_POST['contraseña'], $id_departamento, $_POST['email'], $_POST['id']]);
 
 // // Limpiamos el insert
-// $updatePreparacion = null;
+$updatePreparacion = null;
 
 // // Cerramos la conexión
-// $conn = null;
+$pdo = null;
 
 // // Recargamos la pagina index.php
-// header('location:index.php');
+header("Location: ../index.php");
+

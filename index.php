@@ -1,28 +1,21 @@
 <?php
 require_once 'connection.php';
-
-
+require_once 'controladores/departamentos.php';
 
 // ** SELECT para obtener las personas
-// Definir la querie como string
-$select = "SELECT id_persona, id_departamento, pe.nombre_persona, pe.apellido_persona, pe.email, de.nombre_departamento as departamento, de.color_departamento
+// ** Guarda el resultado de la consulta en $array_filas
+$selectPerson = "SELECT pe.id_persona, pe.nombre_persona, pe.apellido_persona, pe.email, de.nombre_departamento as departamento, de.color_departamento
 FROM personas pe
 NATURAL JOIN departamentos de
 ";
-
-// Preparación, '->' con espacios antes y después opcional
-$preparacion = $pdo->prepare($select);
-
-//Ejecución, '->' con espacios antes y después opcional
-$preparacion->execute();
-
-// ** Guarda el resultado de la consulta en $array_filas
-//Obtener los valores seleccionados
-$array_filas = $preparacion->fetchAll();
+$selectPerson = $pdo->prepare($selectPerson);
+$selectPerson->execute();
+$array_filas = $selectPerson->fetchAll();
+$selectPerson = null;
+$pdo = null;
 
 // print_r($array_filas);
-
-// $pdo = null;
+// echo "<br>"."-----------------"."<br>";
 
 ?>
 
@@ -96,13 +89,18 @@ $array_filas = $preparacion->fetchAll();
         <section>
             <h2>Evaluación contínua</h2>
                 <p>¡Completa los formularios!</p>
+               
+
+
+
  
         <?php
 
 // ** Aquí deben ir los dos formularios de la aplicación
-$formulario = $_GET['formulario'] ?? 'anadir';
-// echo $formulario;
-        switch ($formulario) {
+
+        
+        $peticion = $_GET['formulario'];
+        switch ($peticion) {
             case 'anadir':
                 include_once 'modulos/add_person.php';
                 break;
@@ -113,6 +111,8 @@ $formulario = $_GET['formulario'] ?? 'anadir';
                 include_once 'modulos/add_person.php';
                 break;
         }
+
+
 ?>
 
         </section>

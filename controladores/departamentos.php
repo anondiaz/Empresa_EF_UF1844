@@ -1,22 +1,7 @@
 <?php
-// Cargar la conexión a la base de datos
-include_once '../connection.php';
-
-// Definir la querie como string
-$select = "SELECT * FROM departamentos";
-
-// Preparación de la consulta
-$preparacion = $pdo->prepare($select);
-
-//Ejecución de la consulta
-$preparacion->execute();
-
-//Obtenemos todos los valores
-$array_departamentos = $preparacion->fetchAll();
-
-// Cerramos la conexión
-$pdo = null;
-
-// Comprobación de que obtenemos los datos
-// print_r($array_departamentos);
-// echo "<br>"."--------------------"."<br>";
+$datosDepartamentos = [
+    ["id_departamento" => 1, "nombre_departamento" => "direccion", "color_departamento" => "darksalmon"],
+    ["id_departamento" => 2, "nombre_departamento" => "contabilidad", "color_departamento" => "steelblue"],
+    ["id_departamento" => 3, "nombre_departamento" => "ventas", "color_departamento" => "#f9e79f"],
+    ["id_departamento" => 4, "nombre_departamento" => "programacion", "color_departamento" => "#a9dfbf"]
+];
