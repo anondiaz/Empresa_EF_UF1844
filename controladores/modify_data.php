@@ -34,7 +34,7 @@ require_once './departamentos.php';
 
 
 // // Definir la querie como string
-// $update = "UPDATE tareas SET titulo = ?, descripcion = ?, fecha_prevista_fin = ?, id_estado = ?, id_usuario = ?, modificacion = ? WHERE id_tarea = ? ";
+// $update = "UPDATEpersonas(nombre_persona, apellido_persona, password, id_departamento, email) VALUES (?, ?, ?, ?, ?) WHERE id_persona = ?";
 
 // // Preparación, '->' con espacios antes y después opcional
 // $updatePreparacion = $conn -> prepare($update);

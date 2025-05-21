@@ -5,7 +5,7 @@ require_once 'connection.php';
 
 // ** SELECT para obtener las personas
 // Definir la querie como string
-$select = "SELECT id_persona, pe.nombre_persona, pe.apellido_persona, pe.email, de.nombre_departamento as departamento, de.color_departamento
+$select = "SELECT id_persona, id_departamento, pe.nombre_persona, pe.apellido_persona, pe.email, de.nombre_departamento as departamento, de.color_departamento
 FROM personas pe
 NATURAL JOIN departamentos de
 ";
@@ -101,7 +101,7 @@ $array_filas = $preparacion->fetchAll();
 
 // ** Aquí deben ir los dos formularios de la aplicación
 $formulario = $_GET['formulario'] ?? 'anadir';
-echo $formulario;
+// echo $formulario;
         switch ($formulario) {
             case 'anadir':
                 include_once 'modulos/add_person.php';
