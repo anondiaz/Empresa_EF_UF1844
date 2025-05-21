@@ -5,6 +5,7 @@ require_once './departamentos.php';
 
 //  ** Completa esto **
 
+print_r($_POST);
 // Prueba de recepción de datos de los departamentos
 // print_r($array_departamentos);
 // echo "<br>"."--------------------"."<br>";
@@ -13,24 +14,24 @@ require_once './departamentos.php';
 // echo $_POST['estado'];
 // echo "<br>"."--------------------"."<br>";
 
-// $id_departamento = 0;
+$id_departamento = 0;
 
-// foreach ($array_departamento as $id_subarrayestado) {
-//     // echo $id_subarrayestado['nombre_estado'] . "estado";
-//     // echo "<br>"."--------------------"."<br>";
-//     // echo $_POST['estado'] . "estado";
-//     // echo "<br>"."--------------------"."<br>";
-//     // echo $id_subarrayestado['id_estado'] . "id_estado";
-//     // echo "<br>"."--------------------"."<br>";
+foreach ($array_departamento as $id_subarrayestado) {
+    // echo $id_subarrayestado['nombre_estado'] . "estado";
+    // echo "<br>"."--------------------"."<br>";
+    // echo $_POST['estado'] . "estado";
+    // echo "<br>"."--------------------"."<br>";
+    // echo $id_subarrayestado['id_estado'] . "id_estado";
+    // echo "<br>"."--------------------"."<br>";
 
-//     if ($_POST['departamento'] == $id_departamento['nombre_departamento']){
-//         $id_departamento = $id_subarrayestado['id_estado'];
-//         // echo $id_estado;
-//         // echo "<br>"."--------------------"."<br>";
-//         // echo $id_subarrayestado['id_estado'];
+    if ($_POST['departamento'] == $id_departamento['nombre_departamento']){
+        $id_departamento = $id_subarrayestado['id_estado'];
+        // echo $id_estado;
+        // echo "<br>"."--------------------"."<br>";
+        // echo $id_subarrayestado['id_estado'];
         
-//     }
-// }
+    }
+}
 
 
 // // Definir la querie como string
