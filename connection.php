@@ -3,10 +3,10 @@
 // php -S localhost:8001
 // Fichero de conexión : pdo_bind_connection.php
 $host = 'localhost';
-$dbname = 'UF1844';
+$dbname = 'uf1844_andres_diaz';
 $port = 3307;
 $username = 'root';
-$password = 'root';
+$password = 'CIEF1234';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
 $options = [

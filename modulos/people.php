@@ -1,11 +1,9 @@
 <!-- ** Aquí falta introducir el código para crear la "card" con la imagen y los datos de la persona -->
 
-<!--
-<a href=" ** Completa esto ** ">
+<a href="index.php?formulario=modificar">
     <div class="card" style="border: 2px solid <?= $fila['color_departamento']?>">
-        <img src="img/** Completa esto ** .png" alt="** Completa esto ** ">
-        <p class="nombre">** Completa esto **</p>
-        <p class="email">** Completa esto **</p>
+        <img src="img/<?= strtolower($fila['nombre_persona'] . "." . $fila['apellido_persona'])?>.png" alt="Foto de <?= $fila['nombre_persona'] . " " . $fila['apellido_persona']?>">
+        <p class="nombre"><?= $fila['nombre_persona'] . " " . $fila['apellido_persona']?></p>
+        <p class="email"><?= $fila['email']?></p>
     </div>
 </a>
--->
