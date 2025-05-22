@@ -1,7 +1,10 @@
 <!-- ** Completa esto ** -->
 <h2>Formulario para añadir persona</h2>
+<!-- Añadimos el formulario para añadir una persona
+Se añade el action para que al pulsar el botón se envíe la petición a insert_person.php -->
 <form action="controladores/insert_person.php" method="get">
     <div>
+        <!-- Se añade un input para cada dato de la BBDD -->
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required>
     </div>
@@ -19,7 +22,9 @@
     </div>
     <div>
         <label for="departamento">Departamento:</label>
+        <!-- Creamos un select con los departamentos, está pendiente cargar los datos desde BBDD -->
         <select name="departamento" id="departamento">
+            <!-- TO-DO sacar los datos de BBDD -->
             <option value="direccion" selected>Dirección</option>
             <option value="contabilidad">Contabilidad</option>
             <option value="ventas">Ventas</option>
@@ -27,7 +32,9 @@
         </select>
     </div>
     <div class="buttons">
+        <!-- Añadimos el botón para guardar los datos de la nueva persona -->
         <button type="submit">Añadir persona</button>
+        <!-- Y el de borrar el formulario -->
         <button type="reset">Borrar formulario</button>
     </div>
     
